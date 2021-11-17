@@ -1,0 +1,90 @@
+body {
+    background: url(../img/bg.jpg);
+}
+header{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background: #0000006e;
+    margin-bottom: 200px;
+}
+.title {
+    margin-bottom: 20px;
+}
+.days {
+    min-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+.day {
+    font-size: 28px;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.input {
+    min-height: 50px;
+    min-width: 340px;
+    border-radius: 10px;
+    font-size: 26px;
+    background: #0000006e;
+    border: none;
+    outline: none;
+    margin-right: 5px;
+}
+.input::placeholder {
+    color: #000000;
+    font-size: 26px;
+}
+.btn {
+    min-height: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+    font-size: 26px;
+    border: none;
+    background: #0000006e;
+    cursor: pointer;
+}
+
+.del {
+    min-height: 50px;
+    min-width: 50px;
+    border-radius: 10px;
+    font-size: 26px;
+    border: none;
+    background: #0000006e;
+    cursor: pointer;
+}
+.list {
+    
+}
+.list-item {
+    min-height: 50px;
+    min-width: 350px;
+    background-color: #0000006e;
+    border-radius: 10px;
+    font-size: 26px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+}
+
+.list-item:last-child{
+    margin-bottom: 0;
+}
