@@ -10,28 +10,19 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <nav>
-                <ul class="days">
-                    <li class="day">Monday</li>
-                    <li class="day">Tuesday</li>
-                    <li class="day">Wednesday</li>
-                    <li class="day">Thursday</li>
-                    <li class="day">Friday</li>
-                    <li class="day">Saturday</li>
-                    <li class="day">Sunday</li>
-                </ul>
-            </nav>
-        </header>
-        <main class="main">
             <h1 class="title">My list</h1>
             <form action="#" class="form">
-                <input type="text" class="input" placeholder="New task">
-                <button type="button" class="btn">Add</button>
+                <input type="text" class="input" placeholder="New task" maxLength = "28">
+                <button type="button" class="addBtn">Add</button>
             </form> 
             <ul class="list"></ul>
-        </main>
-        <footer></footer>
+            <template id = "toDo">
+                <li class = "listItem">
+                    <input type="checkbox" id="">
+                    <label for="" class="label"></label>
+                    <button type="button" class="delBtn">Del</button>
+                </li>
+            </template>
     </div>
     <script src="./src/app.js"></script>
 </body>

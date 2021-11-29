@@ -1,44 +1,43 @@
 const task = document.querySelector(".input");
-const addBtn = document.querySelector(".btn");
 const toDoList = document.querySelector(".list");
+const addBtn = document.querySelector(".addBtn");
+const toDo = document.querySelector("#toDo");
+const label = toDo.content.querySelector("label");
+const delBtn = toDo.content.querySelector(".delBtn");
+const input = toDo.content.querySelector("input");
+let id = 1;
+let toDos;
 
-let taskList = [];
-if (localStorage.getItem("task")) {
-  taskList = JSON.parse(localStorage.getItem("task"));
-  outTasks();
+function toLocal() {
+  toDos = toDoList.innerHTML;
+  localStorage.setItem("toDos", toDos);
 }
-addBtn.addEventListener("click", () => {
-  let newTask = {
-    task: task.value,
-    checked: false,
-  };
-  taskList.push(newTask);
-  console.log(taskList);
-  outTasks();
-  localStorage.setItem("task", JSON.stringify(taskList));
+addBtn.addEventListener("click" && "keypres", () => {
+  createTask();
+  id++;
+  toLocal();
+  task.value = "";
 });
 
-function outTasks() {
-  let outTask = "";
-  taskList.forEach((item, index) => {
-    outTask += `
-    <li class = "list-item">
-        <input type = "checkbox" id = "item_${index}">
-        <label for = "item_${index}">${item.task}</label>
-    </li>
-    `;
-    toDoList.innerHTML = outTask;
-  });
+function createTask() {
+  if (task.value !== "") {
+    label.textContent = task.value;
+    delBtn.id = `del_${id}`;
+    label.htmlFor = id;
+    input.id = id;
+    const li = toDo.content.cloneNode(true);
+    toDoList.append(li);
+    id++;
+  }
 }
-
-toDoList.addEventListener("change", (event) => {
-  let idInput = event.target.getAttribute("id");
-  let forLabel = toDoList.querySelector("[for=" + idInput + "]");
-  let valueLabel = forLabel.innerHTML;
-  taskList.forEach((item) => {
-    if (item.task === valueLabel) {
-      item.checked = !item.checked;
-      localStorage.setItem("task", JSON.stringify(taskList));
-    }
-  });
+toDoList.addEventListener("click", (e) => {
+  let id = document.getElementById(e.target.id);
+  if (id !== null && id.nodeName == "BUTTON") {
+    id.parentElement.remove();
+    toLocal();
+  }
 });
+
+if (localStorage.getItem("toDos")) {
+  toDoList.innerHTML = localStorage.getItem("toDos");
+}
